@@ -21,7 +21,6 @@ describe('Responsiveness of Editor', function() {
   });
   xit('Fast response to keypress in pad with large amount of contents', function(done) {
     var inner$ = helper.padInner$;
-    var chrome$ = helper.padChrome$;
     var chars = '0000000000'; // row of placeholder chars
     var amount = 200000; //number of blocks of chars we will insert
     var length = (amount * (chars.length) +1); // include a counter for each space
@@ -68,6 +67,7 @@ describe('Responsiveness of Editor', function() {
         var end = Date.now(); // get the current time
         var delay = end - start; // get the delay as the current time minus the start time
 
+        //todo sometimes over limit?
         expect(delay).to.be.below(300);
         done();
       }, 1000);
